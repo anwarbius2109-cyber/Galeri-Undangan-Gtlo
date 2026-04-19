@@ -15,7 +15,7 @@ body{
   font-family:sans-serif;
 }
 
-/* PREMIUM GLASS */
+/* GLASS */
 .glass{
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(12px);
@@ -40,6 +40,18 @@ body{
 }
 .cat.active{
   background:linear-gradient(135deg,#8b5e34,#d4a373);
+}
+
+/* SKELETON */
+.skeleton{
+  background:linear-gradient(90deg,#2a1a10,#3a2518,#2a1a10);
+  background-size:200% 100%;
+  animation:loading 1.2s infinite;
+  border-radius:10px;
+}
+@keyframes loading{
+  0%{background-position:200% 0}
+  100%{background-position:-200% 0}
 }
 
 /* MOBILE NAV */
@@ -68,7 +80,6 @@ body{
 <!-- HEADER -->
 <header class="sticky top-0 z-50 glass">
   <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
-
     <div class="flex items-center gap-2">
       <img src="/assets/Malirainvitation.co.png" width="40">
       <b>Malirainvitation</b>
@@ -76,17 +87,11 @@ body{
 
     <nav class="hidden md:flex gap-4 text-sm">
       <a href="#home">Home</a>
-      <a href="#problem">Problem</a>
-      <a href="#solusi">Solusi</a>
       <a href="#tema">Tema</a>
-      <a href="#testimoni">Testimoni</a>
-      <a href="#tentang">About</a>
       <a href="#paket">Paket</a>
-      <a href="#faq">FAQs</a>
     </nav>
 
     <a href="https://wa.me/6281279281358" class="btn text-white">Hubungi</a>
-
   </div>
 </header>
 
@@ -97,23 +102,6 @@ body{
 <a href="#tema" class="btn text-white">Lihat Tema</a>
 </section>
 
-<!-- PROBLEM -->
-<section id="problem" class="py-16 text-center">
-<h2 class="text-3xl font-bold">Undangan cetak ribet & mahal</h2>
-</section>
-
-<!-- SOLUSI -->
-<section id="solusi" class="py-16 text-center">
-<h2 class="text-3xl font-bold mb-6">Solusi Undangan Digital</h2>
-<div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-
-<div class="glass p-6">500+ Tema</div>
-<div class="glass p-6">RSVP & Buku Tamu</div>
-<div class="glass p-6">Galeri Foto</div>
-
-</div>
-</section>
-
 <!-- TEMA -->
 <section id="tema" class="py-16">
 <div class="max-w-6xl mx-auto px-4">
@@ -121,7 +109,6 @@ body{
 <input id="searchInput" placeholder="Cari tema..."
 class="w-full p-3 rounded mb-4 text-black">
 
-<!-- CATEGORY -->
 <div id="categories" class="flex flex-wrap gap-2 mb-4"></div>
 
 <div id="themes" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
@@ -129,82 +116,35 @@ class="w-full p-3 rounded mb-4 text-black">
 </div>
 </section>
 
-<!-- TESTIMONI -->
-<section id="testimoni" class="py-16 text-center">
-<h2 class="text-3xl mb-6">Testimoni</h2>
-<div class="glass p-6 max-w-md mx-auto">
-Pelayanan cepat & hasil bagus!
-</div>
-</section>
+<!-- FOOTER PREMIUM -->
+<footer class="text-center py-12 border-t border-white/10">
 
-<!-- ABOUT -->
-<section id="tentang" class="py-16 text-center">
-<h2 class="text-3xl">Tentang Kami</h2>
-<p>Kami menyediakan undangan digital terbaik</p>
-</section>
+  <img src="/assets/Malirainvitation.co.png" width="70" class="mx-auto mb-4">
 
-<!-- PAKET -->
-<section id="paket" class="py-16">
-<div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-4 px-4">
+  <h3 class="text-lg font-semibold mb-2">Malirainvitation</h3>
+  <p class="text-sm opacity-70 mb-6">Undangan Digital Modern & Elegan</p>
 
-<div class="glass p-6 text-center">
-<h3>Basic</h3>
-<p class="text-2xl">65K</p>
-<ul class="text-sm mt-4">
-<li>5 Revisi</li>
-<li>RSVP</li>
-<li>Maps</li>
-</ul>
-</div>
+  <div class="flex justify-center gap-4 mb-6">
 
-<div class="glass p-6 text-center">
-<h3>Premium</h3>
-<p class="text-2xl">75K</p>
-<ul class="text-sm mt-4">
-<li>10 Revisi</li>
-<li>Galeri</li>
-<li>RSVP</li>
-</ul>
-</div>
+    <a href="https://instagram.com/malirainvitation.co" target="_blank"
+    class="glass p-3 hover:scale-110 transition">📸</a>
 
-<div class="glass p-6 text-center">
-<h3>Prioritas</h3>
-<p class="text-2xl">100K</p>
-<ul class="text-sm mt-4">
-<li>Full Fitur</li>
-<li>Love Story</li>
-<li>Custom</li>
-</ul>
-</div>
+    <a href="https://wa.me/6281279281358" target="_blank"
+    class="glass p-3 hover:scale-110 transition">💬</a>
 
-</div>
-</section>
+    <a href="https://facebook.com/" target="_blank"
+    class="glass p-3 hover:scale-110 transition">👍</a>
 
-<!-- FAQ -->
-<section id="faq" class="py-16 text-center">
-<h2 class="text-3xl">FAQs</h2>
-<p>Tidak ada batas kirim undangan</p>
-</section>
+    <a href="https://tiktok.com/" target="_blank"
+    class="glass p-3 hover:scale-110 transition">🎵</a>
 
-<!-- FOOTER -->
-<footer class="text-center py-10">
-<img src="/assets/Malirainvitation.co.png" width="60" class="mx-auto mb-3">
-<p>© Malirainvitation</p>
+  </div>
 
-<div class="flex justify-center gap-4 mt-4">
-<a href="https://instagram.com/malirainvitation.co">IG</a>
-<a href="https://wa.me/6281279281358">WA</a>
-</div>
+  <p class="text-xs opacity-50">
+    © 2026 Malirainvitation. All rights reserved.
+  </p>
+
 </footer>
-
-<!-- MOBILE NAV -->
-<div class="mobile-nav">
-<a href="#home">Home</a>
-<a href="#problem">Problem</a>
-<a href="#solusi">Solusi</a>
-<a href="#tema">Tema</a>
-<a href="#paket">Paket</a>
-</div>
 
 <!-- SCRIPT -->
 <script>
@@ -213,21 +153,16 @@ const phone="6281279281358";
 
 let allThemes=[];
 let activeCategory="Semua";
+let currentPage=1;
+const perPage=8;
 
-/* CATEGORY LIST FIX */
+/* CATEGORY */
 const categories=[
-"Semua",
-"Wedding",
-"Kids & Birthday",
-"Aqiqah & Tasmiyah",
-"Tasyakuran Khitan",
-"Umum & Seminar",
-"Christmas & New Year",
-"Party & Dinner",
-"School & Graduation"
+"Semua","Wedding","Kids & Birthday","Aqiqah & Tasmiyah",
+"Tasyakuran Khitan","Umum & Seminar","Christmas & New Year",
+"Party & Dinner","School & Graduation"
 ];
 
-/* RENDER CATEGORY */
 const catWrap=document.getElementById("categories");
 categories.forEach(cat=>{
   const btn=document.createElement("button");
@@ -239,14 +174,34 @@ categories.forEach(cat=>{
     document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));
     btn.classList.add("active");
     activeCategory=cat;
+    currentPage=1;
     applyFilter();
   };
 
   catWrap.appendChild(btn);
 });
 
-/* LOAD DATA */
+/* SKELETON */
+function showSkeleton(){
+const el=document.getElementById("themes");
+el.innerHTML="";
+for(let i=0;i<8;i++){
+  el.innerHTML+=`
+  <div class="glass p-2">
+    <div class="skeleton h-32 w-full"></div>
+    <div class="skeleton h-4 mt-2 w-3/4"></div>
+    <div class="grid grid-cols-2 gap-2 mt-2">
+      <div class="skeleton h-6"></div>
+      <div class="skeleton h-6"></div>
+    </div>
+  </div>`;
+}
+}
+
+/* LOAD */
 async function loadThemes(){
+showSkeleton();
+
 let url=baseUrl+"/seller/api/v1/products/websites?limit=50";
 
 while(url){
@@ -258,20 +213,32 @@ while(url){
 applyFilter();
 }
 
-/* FILTER FIX */
+/* CATEGORY LOGIC */
+function getCategory(name){
+const n=name.toLowerCase();
+if(n.includes("wedding")||n.includes("nikah")) return "Wedding";
+if(n.includes("birthday")||n.includes("ulang")) return "Kids & Birthday";
+if(n.includes("aqiqah")) return "Aqiqah & Tasmiyah";
+if(n.includes("khitan")) return "Tasyakuran Khitan";
+if(n.includes("seminar")) return "Umum & Seminar";
+if(n.includes("christmas")) return "Christmas & New Year";
+if(n.includes("party")||n.includes("dinner")) return "Party & Dinner";
+if(n.includes("graduation")||n.includes("wisuda")) return "School & Graduation";
+return "Other";
+}
+
+/* FILTER */
 function applyFilter(){
 const keyword=document.getElementById("searchInput").value.toLowerCase();
 
 const filtered=allThemes.filter(t=>{
   const name=t.name.toLowerCase();
+  const category=getCategory(t.name);
 
-  const matchSearch=name.includes(keyword);
-
-  const matchCategory =
-    activeCategory==="Semua" ||
-    name.includes(activeCategory.toLowerCase());
-
-  return matchSearch && matchCategory;
+  return (
+    name.includes(keyword) &&
+    (activeCategory==="Semua" || category===activeCategory)
+  );
 });
 
 render(filtered);
@@ -282,23 +249,51 @@ function render(data){
 const el=document.getElementById("themes");
 el.innerHTML="";
 
-data.forEach(t=>{
+const start=(currentPage-1)*perPage;
+const pageData=data.slice(start,start+perPage);
+
+pageData.forEach(t=>{
   el.innerHTML+=`
   <div class="glass p-2">
-    <img src="${t.featured_image}" class="rounded">
+    <img src="${t.featured_image}" loading="lazy" class="rounded">
     <h3 class="text-sm mt-2">${t.name}</h3>
     <div class="grid grid-cols-2 gap-2 mt-2">
       <a href="${baseUrl}/preview/${t.slug}" target="_blank" class="bg-gray-200 text-black text-center">Preview</a>
-      <a href="https://wa.me/${phone}?text=Pesan ${t.name}" target="_blank" class="bg-purple-600 text-white text-center">Pesan</a>
+      <a href="https://wa.me/${phone}?text=${encodeURIComponent("Pesan "+t.name)}" target="_blank" class="bg-purple-600 text-white text-center">Pesan</a>
     </div>
-  </div>
-  `;
+  </div>`;
 });
+
+renderPagination(data.length);
 }
 
-/* SEARCH EVENT */
+/* PAGINATION */
+function renderPagination(total){
+const totalPages=Math.ceil(total/perPage);
+let html=`<div class="col-span-full flex justify-center gap-2 mt-6">`;
+
+for(let i=1;i<=totalPages;i++){
+  html+=`
+  <button class="cat ${i===currentPage?"active":""}"
+  onclick="goPage(${i})">${i}</button>`;
+}
+
+html+=`</div>`;
+document.getElementById("themes").innerHTML+=html;
+}
+
+function goPage(i){
+currentPage=i;
+applyFilter();
+window.scrollTo({top:document.getElementById("tema").offsetTop-80,behavior:"smooth"});
+}
+
+/* SEARCH */
 document.getElementById("searchInput")
-.addEventListener("input",applyFilter);
+.addEventListener("input",()=>{
+currentPage=1;
+applyFilter();
+});
 
 loadThemes();
 </script>
