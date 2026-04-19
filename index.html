@@ -1,200 +1,203 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Malirainvitation</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<title>Malirainvitation.co</title>
 
 <style>
 body{
-  background: linear-gradient(135deg,#1c1208,#2b1a0d);
-  color:white;
+  background:#0f0a05;
+  color:#f5f5f5;
+  font-family:sans-serif;
 }
 
-/* GLASS */
+/* PREMIUM GLASS */
 .glass{
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  border-radius:15px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;
 }
 
 /* BUTTON */
 .btn{
-  background: linear-gradient(135deg,#c08b4f,#8b5e34);
-  padding:8px 16px;
+  background:linear-gradient(135deg,#8b5e34,#d4a373);
+  padding:10px 20px;
   border-radius:10px;
 }
 
-/* NAV MOBILE */
+/* CATEGORY */
+.cat{
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:12px;
+  cursor:pointer;
+  background:#2a1a10;
+}
+.cat.active{
+  background:linear-gradient(135deg,#8b5e34,#d4a373);
+}
+
+/* MOBILE NAV */
 .mobile-nav{
   position:fixed;
   bottom:0;
   width:100%;
-  display:flex;
+  background:#1a120c;
+  display:none;
   justify-content:space-around;
-  background:#2b1a0d;
-  padding:8px;
-  z-index:999;
+  padding:10px;
 }
 .mobile-nav a{
   font-size:11px;
   text-align:center;
 }
-
-@media(min-width:768px){
-  .mobile-nav{display:none;}
-}
-
-/* CATEGORY */
-#categories button{
-  padding:6px 10px;
-  margin:4px;
-  border-radius:999px;
-  background:#ffffff20;
-}
-.category-active{
-  background:#c08b4f;
+@media(max-width:768px){
+  .mobile-nav{display:flex}
+  body{padding-bottom:70px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="glass sticky top-0 z-50">
-<div class="max-w-6xl mx-auto flex justify-between items-center p-3">
+<!-- HEADER -->
+<header class="sticky top-0 z-50 glass">
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
 
-<!-- LOGO -->
-<div class="flex items-center gap-2">
-<img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png" width="30">
-<b>Malirainvitation</b>
-</div>
+    <div class="flex items-center gap-2">
+      <img src="/assets/Malirainvitation.co.png" width="40">
+      <b>Malirainvitation</b>
+    </div>
 
-<!-- MENU DESKTOP -->
-<nav class="hidden md:flex gap-4 text-sm">
-<a href="#home">Home</a>
-<a href="#problem">Problem</a>
-<a href="#solusi">Solusi</a>
-<a href="#tema">Tema</a>
-<a href="#testimoni">Testimoni</a>
-<a href="#about">About</a>
-<a href="#paket">Paket</a>
-<a href="#faq">FAQs</a>
-</nav>
+    <nav class="hidden md:flex gap-4 text-sm">
+      <a href="#home">Home</a>
+      <a href="#problem">Problem</a>
+      <a href="#solusi">Solusi</a>
+      <a href="#tema">Tema</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#tentang">About</a>
+      <a href="#paket">Paket</a>
+      <a href="#faq">FAQs</a>
+    </nav>
 
-</div>
+    <a href="https://wa.me/6281279281358" class="btn text-white">Hubungi</a>
+
+  </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section id="home" class="text-center py-20">
-<h1 class="text-4xl font-bold">Undangan Digital Premium</h1>
-<p class="opacity-70">Modern, elegan & praktis</p>
+<!-- HERO -->
+<section id="home" class="text-center py-24">
+<h1 class="text-5xl font-bold mb-4">Undangan Digital Premium</h1>
+<p class="mb-6">Elegan, modern & praktis hanya dengan 1 link</p>
+<a href="#tema" class="btn text-white">Lihat Tema</a>
 </section>
 
-<!-- ================= PROBLEM ================= -->
-<section id="problem" class="text-center py-16">
-<h2 class="text-2xl">Undangan cetak mahal & ribet</h2>
-<p class="opacity-70">Sekarang cukup kirim link</p>
+<!-- PROBLEM -->
+<section id="problem" class="py-16 text-center">
+<h2 class="text-3xl font-bold">Undangan cetak ribet & mahal</h2>
 </section>
 
-<!-- ================= SOLUSI ================= -->
+<!-- SOLUSI -->
 <section id="solusi" class="py-16 text-center">
-<h2 class="text-2xl mb-6">Fitur Unggulan</h2>
+<h2 class="text-3xl font-bold mb-6">Solusi Undangan Digital</h2>
+<div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
 
-<div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-<div class="glass p-4">500+ Tema</div>
-<div class="glass p-4">RSVP & Buku Tamu</div>
-<div class="glass p-4">Google Maps</div>
-<div class="glass p-4">Galeri Foto</div>
-<div class="glass p-4">Musik Latar</div>
-<div class="glass p-4">Ucapan & Doa</div>
+<div class="glass p-6">500+ Tema</div>
+<div class="glass p-6">RSVP & Buku Tamu</div>
+<div class="glass p-6">Galeri Foto</div>
+
 </div>
 </section>
 
-<!-- ================= TEMA ================= -->
+<!-- TEMA -->
 <section id="tema" class="py-16">
 <div class="max-w-6xl mx-auto px-4">
 
-<!-- SEARCH -->
-<input id="searchInput"
-placeholder="Cari tema..."
-class="w-full p-3 rounded text-black mb-4">
+<input id="searchInput" placeholder="Cari tema..."
+class="w-full p-3 rounded mb-4 text-black">
 
 <!-- CATEGORY -->
-<div id="categories" class="flex flex-wrap justify-center mb-4"></div>
+<div id="categories" class="flex flex-wrap gap-2 mb-4"></div>
 
-<!-- THEMES -->
-<div id="themes"
-class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+<div id="themes" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
 
 </div>
 </section>
 
-<!-- ================= TESTIMONI ================= -->
-<section id="testimoni" class="text-center py-16">
-<h2 class="text-2xl mb-4">Testimoni</h2>
-<p class="opacity-70">Banyak pelanggan puas menggunakan layanan kami</p>
+<!-- TESTIMONI -->
+<section id="testimoni" class="py-16 text-center">
+<h2 class="text-3xl mb-6">Testimoni</h2>
+<div class="glass p-6 max-w-md mx-auto">
+Pelayanan cepat & hasil bagus!
+</div>
 </section>
 
-<!-- ================= ABOUT ================= -->
-<section id="about" class="text-center py-16">
-<h2 class="text-2xl">Tentang Kami</h2>
-<p class="opacity-70">Platform undangan digital modern & terpercaya</p>
+<!-- ABOUT -->
+<section id="tentang" class="py-16 text-center">
+<h2 class="text-3xl">Tentang Kami</h2>
+<p>Kami menyediakan undangan digital terbaik</p>
 </section>
 
-<!-- ================= PAKET ================= -->
-<section id="paket" class="py-16 text-center">
-<h2 class="text-3xl mb-8">Paket</h2>
+<!-- PAKET -->
+<section id="paket" class="py-16">
+<div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-4 px-4">
 
-<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-
-<div class="glass p-5">
+<div class="glass p-6 text-center">
 <h3>Basic</h3>
-<p>Rp65K</p>
-<ul class="text-sm mt-3">
-<li>✔ RSVP</li>
-<li>✔ Maps</li>
-<li>✔ Musik</li>
-<li>✔ Amplop</li>
-<li>❌ Galeri</li>
+<p class="text-2xl">65K</p>
+<ul class="text-sm mt-4">
+<li>5 Revisi</li>
+<li>RSVP</li>
+<li>Maps</li>
 </ul>
 </div>
 
-<div class="glass p-5 border border-yellow-400">
+<div class="glass p-6 text-center">
 <h3>Premium</h3>
-<p>Rp75K</p>
-<ul class="text-sm mt-3">
-<li>✔ RSVP</li>
-<li>✔ Maps</li>
-<li>✔ Musik</li>
-<li>✔ Amplop</li>
-<li>✔ Galeri</li>
+<p class="text-2xl">75K</p>
+<ul class="text-sm mt-4">
+<li>10 Revisi</li>
+<li>Galeri</li>
+<li>RSVP</li>
 </ul>
 </div>
 
-<div class="glass p-5">
-<h3>Ultimate</h3>
-<p>Rp100K</p>
-<ul class="text-sm mt-3">
-<li>✔ Semua fitur</li>
-<li>✔ Love Story</li>
-<li>✔ Turut Mengundang</li>
-<li>✔ Custom</li>
+<div class="glass p-6 text-center">
+<h3>Prioritas</h3>
+<p class="text-2xl">100K</p>
+<ul class="text-sm mt-4">
+<li>Full Fitur</li>
+<li>Love Story</li>
+<li>Custom</li>
 </ul>
 </div>
 
 </div>
 </section>
 
-<!-- ================= FAQ ================= -->
-<section id="faq" class="text-center py-16">
-<h2 class="text-2xl">FAQ</h2>
-<p class="opacity-70">Proses ±1 jam</p>
+<!-- FAQ -->
+<section id="faq" class="py-16 text-center">
+<h2 class="text-3xl">FAQs</h2>
+<p>Tidak ada batas kirim undangan</p>
 </section>
 
-<!-- ================= MOBILE NAV ================= -->
+<!-- FOOTER -->
+<footer class="text-center py-10">
+<img src="/assets/Malirainvitation.co.png" width="60" class="mx-auto mb-3">
+<p>© Malirainvitation</p>
+
+<div class="flex justify-center gap-4 mt-4">
+<a href="https://instagram.com/malirainvitation.co">IG</a>
+<a href="https://wa.me/6281279281358">WA</a>
+</div>
+</footer>
+
+<!-- MOBILE NAV -->
 <div class="mobile-nav">
 <a href="#home">Home</a>
 <a href="#problem">Problem</a>
@@ -203,15 +206,16 @@ class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
 <a href="#paket">Paket</a>
 </div>
 
-<!-- ================= SCRIPT ================= -->
+<!-- SCRIPT -->
 <script>
-const baseUrl = "https://webinvit.id";
+const baseUrl="https://webinvit.id";
+const phone="6281279281358";
 
-let allThemes = [];
-let currentCategory = "Semua";
+let allThemes=[];
+let activeCategory="Semua";
 
-/* CATEGORY FIX MANUAL */
-const categories = [
+/* CATEGORY LIST FIX */
+const categories=[
 "Semua",
 "Wedding",
 "Kids & Birthday",
@@ -223,73 +227,78 @@ const categories = [
 "School & Graduation"
 ];
 
-// LOAD
+/* RENDER CATEGORY */
+const catWrap=document.getElementById("categories");
+categories.forEach(cat=>{
+  const btn=document.createElement("button");
+  btn.innerText=cat;
+  btn.className="cat";
+  if(cat==="Semua") btn.classList.add("active");
+
+  btn.onclick=()=>{
+    document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));
+    btn.classList.add("active");
+    activeCategory=cat;
+    applyFilter();
+  };
+
+  catWrap.appendChild(btn);
+});
+
+/* LOAD DATA */
 async function loadThemes(){
-  const res = await fetch(baseUrl + "/seller/api/v1/products/websites?limit=50");
-  const json = await res.json();
-  allThemes = json.data.data;
+let url=baseUrl+"/seller/api/v1/products/websites?limit=50";
 
-  renderThemes(allThemes);
-  buildCategories();
+while(url){
+  const res=await fetch(url);
+  const json=await res.json();
+  allThemes=allThemes.concat(json.data.data);
+  url=json.data.next_page_url;
+}
+applyFilter();
 }
 
-// CATEGORY UI
-function buildCategories(){
-  const el = document.getElementById("categories");
-  el.innerHTML = "";
-
-  categories.forEach(cat=>{
-    const btn = document.createElement("button");
-    btn.innerText = cat;
-
-    if(cat==="Semua") btn.classList.add("category-active");
-
-    btn.onclick = ()=>{
-      currentCategory = cat;
-      document.querySelectorAll("#categories button").forEach(b=>b.classList.remove("category-active"));
-      btn.classList.add("category-active");
-      applyFilter();
-    };
-
-    el.appendChild(btn);
-  });
-}
-
-// FILTER FIX
+/* FILTER FIX */
 function applyFilter(){
-  const keyword = document.getElementById("searchInput").value.toLowerCase();
+const keyword=document.getElementById("searchInput").value.toLowerCase();
 
-  const filtered = allThemes.filter(t=>{
-    const nameMatch = t.name.toLowerCase().includes(keyword);
+const filtered=allThemes.filter(t=>{
+  const name=t.name.toLowerCase();
 
-    let categoryMatch = true;
+  const matchSearch=name.includes(keyword);
 
-    if(currentCategory !== "Semua"){
-      categoryMatch = t.name.toLowerCase().includes(currentCategory.toLowerCase());
-    }
+  const matchCategory =
+    activeCategory==="Semua" ||
+    name.includes(activeCategory.toLowerCase());
 
-    return nameMatch && categoryMatch;
-  });
+  return matchSearch && matchCategory;
+});
 
-  renderThemes(filtered);
+render(filtered);
 }
 
-// SEARCH FIX
-document.getElementById("searchInput").addEventListener("input",applyFilter);
+/* RENDER */
+function render(data){
+const el=document.getElementById("themes");
+el.innerHTML="";
 
-// RENDER
-function renderThemes(data){
-  const el = document.getElementById("themes");
-  el.innerHTML = "";
-
-  data.forEach(t=>{
-    el.innerHTML += `
-    <div class="glass p-2">
-      <img src="${t.featured_image}" class="rounded mb-2">
-      <b>${t.name}</b>
-    </div>`;
-  });
+data.forEach(t=>{
+  el.innerHTML+=`
+  <div class="glass p-2">
+    <img src="${t.featured_image}" class="rounded">
+    <h3 class="text-sm mt-2">${t.name}</h3>
+    <div class="grid grid-cols-2 gap-2 mt-2">
+      <a href="${baseUrl}/preview/${t.slug}" target="_blank" class="bg-gray-200 text-black text-center">Preview</a>
+      <a href="https://wa.me/${phone}?text=Pesan ${t.name}" target="_blank" class="bg-purple-600 text-white text-center">Pesan</a>
+    </div>
+  </div>
+  `;
+});
 }
+
+/* SEARCH EVENT */
+document.getElementById("searchInput")
+.addEventListener("input",applyFilter);
 
 loadThemes();
 </script>
