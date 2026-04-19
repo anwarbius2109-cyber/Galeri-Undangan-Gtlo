@@ -1,76 +1,66 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-<title>Malirainvitation.co</title>
+<title>Malirainvitation</title>
 
 <style>
-body{
-  background:#0f0a05;
-  color:#f5f5f5;
-  font-family:sans-serif;
-}
+body{background:#0f0a05;color:#fff;font-family:sans-serif}
 
 /* GLASS */
 .glass{
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:20px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
 }
 
 /* BUTTON */
 .btn{
-  background:linear-gradient(135deg,#8b5e34,#d4a373);
-  padding:10px 20px;
-  border-radius:10px;
+background:linear-gradient(135deg,#8b5e34,#d4a373);
+padding:10px 20px;
+border-radius:10px;
 }
 
 /* CATEGORY */
 .cat{
-  padding:8px 14px;
-  border-radius:999px;
-  font-size:12px;
-  cursor:pointer;
-  background:#2a1a10;
+padding:8px 14px;
+border-radius:999px;
+background:#2a1a10;
+font-size:12px;
+cursor:pointer;
 }
 .cat.active{
-  background:linear-gradient(135deg,#8b5e34,#d4a373);
+background:linear-gradient(135deg,#8b5e34,#d4a373);
 }
 
 /* SKELETON */
 .skeleton{
-  background:linear-gradient(90deg,#2a1a10,#3a2518,#2a1a10);
-  background-size:200% 100%;
-  animation:loading 1.2s infinite;
-  border-radius:10px;
+background:linear-gradient(90deg,#2a1a10,#3a2518,#2a1a10);
+background-size:200% 100%;
+animation:loading 1s infinite;
+border-radius:10px;
 }
-@keyframes loading{
-  0%{background-position:200% 0}
-  100%{background-position:-200% 0}
+@keyframes loading{0%{background-position:200%}100%{-200%}}
+
+/* CARD HOVER */
+.card:hover{
+transform:translateY(-5px);
+transition:.3s;
 }
 
 /* MOBILE NAV */
 .mobile-nav{
-  position:fixed;
-  bottom:0;
-  width:100%;
-  background:#1a120c;
-  display:none;
-  justify-content:space-around;
-  padding:10px;
-}
-.mobile-nav a{
-  font-size:11px;
-  text-align:center;
+position:fixed;bottom:0;width:100%;
+background:#1a120c;display:none;
+justify-content:space-around;padding:10px;
 }
 @media(max-width:768px){
-  .mobile-nav{display:flex}
-  body{padding-bottom:70px}
+.mobile-nav{display:flex}
+body{padding-bottom:70px}
 }
 </style>
 </head>
@@ -78,75 +68,99 @@ body{
 <body>
 
 <!-- HEADER -->
-<header class="sticky top-0 z-50 glass">
-  <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
-    <div class="flex items-center gap-2">
-      <img src="/assets/Malirainvitation.co.png" width="40">
-      <b>Malirainvitation</b>
-    </div>
-
-    <nav class="hidden md:flex gap-4 text-sm">
-      <a href="#home">Home</a>
-      <a href="#tema">Tema</a>
-      <a href="#paket">Paket</a>
-    </nav>
-
-    <a href="https://wa.me/6281279281358" class="btn text-white">Hubungi</a>
-  </div>
+<header class="glass sticky top-0 z-50 p-4 flex justify-between">
+<b>Malirainvitation</b>
+<a href="#paket" class="btn text-white">Lihat Paket</a>
 </header>
 
 <!-- HERO -->
-<section id="home" class="text-center py-24">
-<h1 class="text-5xl font-bold mb-4">Undangan Digital Premium</h1>
-<p class="mb-6">Elegan, modern & praktis hanya dengan 1 link</p>
-<a href="#tema" class="btn text-white">Lihat Tema</a>
+<section class="text-center py-20">
+<h1 class="text-4xl font-bold mb-4">Undangan Digital Premium</h1>
+<p class="opacity-70 mb-6">Lebih praktis, modern & berkesan hanya dengan 1 link</p>
+<a href="#tema" class="btn text-white">Pilih Tema</a>
 </section>
 
 <!-- TEMA -->
-<section id="tema" class="py-16">
-<div class="max-w-6xl mx-auto px-4">
+<section id="tema" class="p-4 max-w-6xl mx-auto">
 
-<input id="searchInput" placeholder="Cari tema..."
-class="w-full p-3 rounded mb-4 text-black">
+<input id="searchInput" class="w-full p-3 text-black rounded mb-4" placeholder="Cari tema...">
 
-<div id="categories" class="flex flex-wrap gap-2 mb-4"></div>
+<div id="categories" class="flex gap-2 flex-wrap mb-4"></div>
 
 <div id="themes" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+
+</section>
+
+<!-- PAKET PREMIUM -->
+<section id="paket" class="py-16 text-center max-w-6xl mx-auto px-4">
+<h2 class="text-3xl font-bold mb-3">Pilih Paket Terbaikmu</h2>
+<p class="opacity-70 mb-10">Sesuaikan dengan kebutuhan acara kamu ✨</p>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<!-- BASIC -->
+<div class="glass p-6 card">
+<h3 class="text-xl mb-2">Basic</h3>
+<p class="text-3xl font-bold mb-4">65K</p>
+
+<ul class="text-sm text-left space-y-2 mb-6">
+<li>✔ 5 Revisi</li>
+<li>✔ RSVP</li>
+<li>✔ Maps Lokasi</li>
+<li>✔ Musik</li>
+</ul>
+
+<a href="https://wa.me/6281279281358?text=Saya mau paket Basic" class="btn text-white w-full block">Pesan</a>
+</div>
+
+<!-- PREMIUM -->
+<div class="glass p-6 border-2 border-yellow-400 card scale-105">
+<h3 class="text-xl mb-2">Premium</h3>
+<p class="text-3xl font-bold mb-4">75K</p>
+
+<ul class="text-sm text-left space-y-2 mb-6">
+<li>✔ 10 Revisi</li>
+<li>✔ Galeri Foto</li>
+<li>✔ RSVP</li>
+<li>✔ Musik + Animasi</li>
+</ul>
+
+<a href="https://wa.me/6281279281358?text=Saya mau paket Premium" class="btn text-white w-full block">Pesan</a>
+</div>
+
+<!-- PRIORITAS -->
+<div class="glass p-6 card">
+<h3 class="text-xl mb-2">Prioritas</h3>
+<p class="text-3xl font-bold mb-4">100K</p>
+
+<ul class="text-sm text-left space-y-2 mb-6">
+<li>✔ Full Fitur</li>
+<li>✔ Love Story</li>
+<li>✔ Custom Design</li>
+<li>✔ Prioritas Pengerjaan</li>
+</ul>
+
+<a href="https://wa.me/6281279281358?text=Saya mau paket Prioritas" class="btn text-white w-full block">Pesan</a>
+</div>
 
 </div>
 </section>
 
-<!-- FOOTER PREMIUM -->
-<footer class="text-center py-12 border-t border-white/10">
+<!-- FOOTER -->
+<footer class="text-center py-10 border-t border-white/10">
 
-  <img src="/assets/Malirainvitation.co.png" width="70" class="mx-auto mb-4">
+<h3 class="text-lg mb-3">Malirainvitation</h3>
 
-  <h3 class="text-lg font-semibold mb-2">Malirainvitation</h3>
-  <p class="text-sm opacity-70 mb-6">Undangan Digital Modern & Elegan</p>
+<div class="flex justify-center gap-4 mb-4">
+<a href="https://instagram.com/malirainvitation.co">📸</a>
+<a href="https://wa.me/6281279281358">💬</a>
+<a href="#">🎵</a>
+</div>
 
-  <div class="flex justify-center gap-4 mb-6">
-
-    <a href="https://instagram.com/malirainvitation.co" target="_blank"
-    class="glass p-3 hover:scale-110 transition">📸</a>
-
-    <a href="https://wa.me/6281279281358" target="_blank"
-    class="glass p-3 hover:scale-110 transition">💬</a>
-
-    <a href="https://facebook.com/" target="_blank"
-    class="glass p-3 hover:scale-110 transition">👍</a>
-
-    <a href="https://tiktok.com/" target="_blank"
-    class="glass p-3 hover:scale-110 transition">🎵</a>
-
-  </div>
-
-  <p class="text-xs opacity-50">
-    © 2026 Malirainvitation. All rights reserved.
-  </p>
+<p class="text-xs opacity-50">© 2026 All Rights Reserved</p>
 
 </footer>
 
-<!-- SCRIPT -->
 <script>
 const baseUrl="https://webinvit.id";
 const phone="6281279281358";
@@ -157,88 +171,73 @@ let currentPage=1;
 const perPage=8;
 
 /* CATEGORY */
-const categories=[
-"Semua","Wedding","Kids & Birthday","Aqiqah & Tasmiyah",
-"Tasyakuran Khitan","Umum & Seminar","Christmas & New Year",
-"Party & Dinner","School & Graduation"
-];
+const categories=["Semua","Wedding","Kids & Birthday","Aqiqah & Tasmiyah","Tasyakuran Khitan","Umum & Seminar"];
 
-const catWrap=document.getElementById("categories");
 categories.forEach(cat=>{
-  const btn=document.createElement("button");
-  btn.innerText=cat;
-  btn.className="cat";
-  if(cat==="Semua") btn.classList.add("active");
+let btn=document.createElement("button");
+btn.innerText=cat;
+btn.className="cat";
+if(cat==="Semua") btn.classList.add("active");
 
-  btn.onclick=()=>{
-    document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));
-    btn.classList.add("active");
-    activeCategory=cat;
-    currentPage=1;
-    applyFilter();
-  };
+btn.onclick=()=>{
+document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));
+btn.classList.add("active");
+activeCategory=cat;
+currentPage=1;
+applyFilter();
+};
 
-  catWrap.appendChild(btn);
+document.getElementById("categories").appendChild(btn);
 });
+
+/* CATEGORY FIX */
+function getCategory(name){
+let n=name.toLowerCase();
+
+if(n.includes("aqiqah")||n.includes("baby")||n.includes("tasmiyah")) return "Aqiqah & Tasmiyah";
+if(n.includes("seminar")||n.includes("meeting")||n.includes("event")) return "Umum & Seminar";
+if(n.includes("wedding")||n.includes("nikah")) return "Wedding";
+if(n.includes("ulang")||n.includes("birthday")) return "Kids & Birthday";
+if(n.includes("khitan")) return "Tasyakuran Khitan";
+
+return "Other";
+}
 
 /* SKELETON */
 function showSkeleton(){
-const el=document.getElementById("themes");
+let el=document.getElementById("themes");
 el.innerHTML="";
 for(let i=0;i<8;i++){
-  el.innerHTML+=`
-  <div class="glass p-2">
-    <div class="skeleton h-32 w-full"></div>
-    <div class="skeleton h-4 mt-2 w-3/4"></div>
-    <div class="grid grid-cols-2 gap-2 mt-2">
-      <div class="skeleton h-6"></div>
-      <div class="skeleton h-6"></div>
-    </div>
-  </div>`;
+el.innerHTML+=`<div class="glass p-2">
+<div class="skeleton h-32"></div>
+<div class="skeleton h-4 mt-2"></div>
+</div>`;
 }
 }
 
 /* LOAD */
 async function loadThemes(){
 showSkeleton();
-
 let url=baseUrl+"/seller/api/v1/products/websites?limit=50";
 
 while(url){
-  const res=await fetch(url);
-  const json=await res.json();
-  allThemes=allThemes.concat(json.data.data);
-  url=json.data.next_page_url;
+let res=await fetch(url);
+let json=await res.json();
+allThemes=allThemes.concat(json.data.data);
+url=json.data.next_page_url;
 }
 applyFilter();
 }
 
-/* CATEGORY LOGIC */
-function getCategory(name){
-const n=name.toLowerCase();
-if(n.includes("wedding")||n.includes("nikah")) return "Wedding";
-if(n.includes("birthday")||n.includes("ulang")) return "Kids & Birthday";
-if(n.includes("aqiqah")) return "Aqiqah & Tasmiyah";
-if(n.includes("khitan")) return "Tasyakuran Khitan";
-if(n.includes("seminar")) return "Umum & Seminar";
-if(n.includes("christmas")) return "Christmas & New Year";
-if(n.includes("party")||n.includes("dinner")) return "Party & Dinner";
-if(n.includes("graduation")||n.includes("wisuda")) return "School & Graduation";
-return "Other";
-}
-
 /* FILTER */
 function applyFilter(){
-const keyword=document.getElementById("searchInput").value.toLowerCase();
+let keyword=document.getElementById("searchInput").value.toLowerCase();
 
-const filtered=allThemes.filter(t=>{
-  const name=t.name.toLowerCase();
-  const category=getCategory(t.name);
+let filtered=allThemes.filter(t=>{
+let name=t.name.toLowerCase();
+let cat=getCategory(t.name);
 
-  return (
-    name.includes(keyword) &&
-    (activeCategory==="Semua" || category===activeCategory)
-  );
+return name.includes(keyword) && (activeCategory==="Semua"||cat===activeCategory);
 });
 
 render(filtered);
@@ -246,51 +245,49 @@ render(filtered);
 
 /* RENDER */
 function render(data){
-const el=document.getElementById("themes");
+let el=document.getElementById("themes");
 el.innerHTML="";
 
-const start=(currentPage-1)*perPage;
-const pageData=data.slice(start,start+perPage);
+let start=(currentPage-1)*perPage;
+let pageData=data.slice(start,start+perPage);
 
 pageData.forEach(t=>{
-  el.innerHTML+=`
-  <div class="glass p-2">
-    <img src="${t.featured_image}" loading="lazy" class="rounded">
-    <h3 class="text-sm mt-2">${t.name}</h3>
-    <div class="grid grid-cols-2 gap-2 mt-2">
-      <a href="${baseUrl}/preview/${t.slug}" target="_blank" class="bg-gray-200 text-black text-center">Preview</a>
-      <a href="https://wa.me/${phone}?text=${encodeURIComponent("Pesan "+t.name)}" target="_blank" class="bg-purple-600 text-white text-center">Pesan</a>
-    </div>
-  </div>`;
+el.innerHTML+=`
+<div class="glass p-2 card">
+<img src="${t.featured_image}" loading="lazy">
+<p class="mt-2">${t.name}</p>
+<a href="https://wa.me/${phone}?text=${encodeURIComponent("Pesan "+t.name)}" class="btn block mt-2 text-center">Pesan</a>
+</div>`;
 });
 
-renderPagination(data.length);
+pagination(data.length);
 }
 
 /* PAGINATION */
-function renderPagination(total){
-const totalPages=Math.ceil(total/perPage);
-let html=`<div class="col-span-full flex justify-center gap-2 mt-6">`;
+function pagination(total){
+let totalPages=Math.ceil(total/perPage);
+let html=`<div class="col-span-full flex gap-2 justify-center mt-6">`;
 
-for(let i=1;i<=totalPages;i++){
-  html+=`
-  <button class="cat ${i===currentPage?"active":""}"
-  onclick="goPage(${i})">${i}</button>`;
+if(currentPage>1) html+=`<button onclick="goPage(${currentPage-1})" class="cat">Prev</button>`;
+
+for(let i=1;i<=Math.min(10,totalPages);i++){
+html+=`<button onclick="goPage(${i})" class="cat ${i===currentPage?'active':''}">${i}</button>`;
 }
 
+if(currentPage<totalPages) html+=`<button onclick="goPage(${currentPage+1})" class="cat">Next</button>`;
+
 html+=`</div>`;
+
 document.getElementById("themes").innerHTML+=html;
 }
 
 function goPage(i){
 currentPage=i;
 applyFilter();
-window.scrollTo({top:document.getElementById("tema").offsetTop-80,behavior:"smooth"});
 }
 
 /* SEARCH */
-document.getElementById("searchInput")
-.addEventListener("input",()=>{
+document.getElementById("searchInput").addEventListener("input",()=>{
 currentPage=1;
 applyFilter();
 });
