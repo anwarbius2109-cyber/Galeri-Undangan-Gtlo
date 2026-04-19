@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<title>Undangan Digital Premium</title>
+
+<style>
+body { font-family: sans-serif; }
+
+/* OPENING */
+#opening {
+  transition: 1s;
+}
+
+/* ANIMATION */
+.section-animate {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.8s;
+}
+.section-animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SNAP */
+html {
+  scroll-snap-type: y mandatory;
+}
+section {
+  scroll-snap-align: start;
+}
+
+/* BUTTON */
+.btn {
+  transition: 0.3s;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+<div id="opening" class="fixed inset-0 bg-black text-white flex flex-col items-center justify-center z-50">
+  <h2 class="text-xl mb-2 opacity-80">Undangan Digital</h2>
+  <h1 class="text-4xl font-bold mb-6">Malirainvitation.co</h1>
+  <button onclick="openInvitation()" class="bg-purple-600 px-6 py-3 rounded text-white">
+    Buka Undangan
+  </button>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="https://files.catbox.moe/8h6n7v.mp3" type="audio/mpeg">
+</audio>
+
+<!-- HERO -->
+<section class="section-animate h-screen flex items-center justify-center text-center text-white"
+style="background:url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=2070') center/cover;">
+
+<div class="bg-black/60 p-10 rounded">
+  <h1 class="text-5xl font-bold mb-4">Undangan Digital Premium</h1>
+  <p class="mb-6">Elegan, modern, dan siap dibagikan</p>
+  <a href="#paket" class="btn bg-purple-600 px-6 py-3 rounded">Lihat Paket</a>
+</div>
+</section>
+
+<!-- FITUR -->
+<section class="section-animate py-20 text-center">
+<h2 class="text-3xl font-bold mb-10">Fitur Unggulan</h2>
+
+<div class="grid md:grid-cols-3 gap-6 px-6 max-w-5xl mx-auto">
+  <div class="bg-white p-6 shadow rounded">RSVP & Buku Tamu</div>
+  <div class="bg-white p-6 shadow rounded">Galeri Foto</div>
+  <div class="bg-white p-6 shadow rounded">Musik Otomatis</div>
+</div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="section-animate py-20 bg-gray-100 text-center">
+<h2 class="text-3xl font-bold mb-10">Testimoni</h2>
+
+<div class="grid md:grid-cols-3 gap-6 px-6 max-w-5xl mx-auto">
+  <div class="bg-white p-6 shadow rounded">Bagus banget!</div>
+  <div class="bg-white p-6 shadow rounded">Cepat & murah</div>
+  <div class="bg-white p-6 shadow rounded">Sangat puas</div>
+</div>
+</section>
+
+<!-- PAKET -->
+<section id="paket" class="section-animate py-20 text-center">
+<h2 class="text-3xl font-bold mb-10">Paket Harga</h2>
+
+<div class="grid md:grid-cols-3 gap-6 px-6 max-w-5xl mx-auto">
+
+<div class="bg-white p-6 shadow rounded">
+<h3 class="text-xl mb-2">Basic</h3>
+<p class="text-2xl font-bold mb-4">Rp65K</p>
+<a href="#" class="bg-purple-600 text-white px-4 py-2 rounded">Pesan</a>
+</div>
+
+<div class="bg-white p-6 shadow rounded">
+<h3 class="text-xl mb-2">Premium</h3>
+<p class="text-2xl font-bold mb-4">Rp75K</p>
+<a href="#" class="bg-purple-600 text-white px-4 py-2 rounded">Pesan</a>
+</div>
+
+<div class="bg-white p-6 shadow rounded">
+<h3 class="text-xl mb-2">Prioritas</h3>
+<p class="text-2xl font-bold mb-4">Rp100K</p>
+<a href="#" class="bg-purple-600 text-white px-4 py-2 rounded">Pesan</a>
+</div>
+
+</div>
+</section>
+
+<!-- CTA -->
+<div class="fixed bottom-0 w-full bg-white p-3 flex justify-between items-center shadow">
+<span class="font-bold">Mulai Rp65.000</span>
+<a href="https://wa.me/6281279281358" class="bg-purple-600 text-white px-4 py-2 rounded">
+Pesan Sekarang
+</a>
+</div>
+
+<script>
+document.body.style.overflow = "hidden";
+
+function openInvitation() {
+  const opening = document.getElementById("opening");
+
+  opening.style.opacity = "0";
+  document.getElementById("music").play();
+
+  setTimeout(() => {
+    opening.style.display = "none";
+    document.body.style.overflow = "auto";
+  }, 1000);
+}
+
+// ANIMASI SECTION
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".section-animate").forEach((el) => {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
