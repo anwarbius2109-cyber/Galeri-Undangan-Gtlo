@@ -29,7 +29,7 @@
       rel="stylesheet"
       href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css"
     />
-    <link rel="stylesheet" href="/assets/theme-16.css" />
+    <link rel="stylesheet" href="/assets/theme-2.css" />
   </head>
   <body>
     <header class="sticky top-0 z-100">
@@ -728,8 +728,8 @@
   font-size: 24px;
   border-radius: 50%;
 
-  background: #f1f1f1;
-  color: #555;
+  background: var(--secondary);
+color: var(--primary);
 
   box-shadow: 
     6px 6px 12px rgba(0,0,0,0.1),
@@ -831,8 +831,8 @@ function renderThemes(data) {
         '<div class="p-3">' +
           '<h3 class="font-bold mb-2">' + theme.name + '</h3>' +
           '<div class="grid grid-cols-2 gap-2">' +
-            '<a href="' + baseUrl + '/preview/' + theme.slug + '" target="_blank" class="bg-gray-200 text-center p-1 rounded">Preview</a>' +
-            '<a href="https://wa.me/' + phoneNumber + '?text=Pesan+' + theme.name + '" target="_blank" class="bg-purple-500 text-white text-center p-1 rounded">Pesan</a>' +
+            '<a href="' + baseUrl + '/preview/' + theme.slug + '" target="_blank" class="bg-secondary" text-center p-1 rounded">Preview</a>' +
+            '<a href="https://wa.me/' + phoneNumber + '?text=Pesan+' + theme.name + '" target="_blank" class="bg-primary text-white text-center p-1 rounded">Pesan</a>' +
           '</div>' +
         '</div>' +
       '</div>';
@@ -934,7 +934,7 @@ loadAllThemes();
   bottom: 0;
   left: 0;
   width: 100%;
-  background: #6d28d9;
+  background: var(--primary);
   display: none;
   justify-content: space-around;
   padding: 8px 4px;
