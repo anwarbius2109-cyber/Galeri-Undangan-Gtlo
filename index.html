@@ -774,7 +774,24 @@ color: var(--primary);
     <script>
 const baseUrl = "https://webinvit.id";
 const phoneNumber = "62895322508505";
-
+// ===== TEMA POPULER MANUAL =====
+const popularThemes = [
+  {
+    name: "Melayu Pastel",
+    image: "/assets/melayu.jpg",
+    preview: "https://link-kamu.com/melayu"
+  },
+  {
+    name: "Elegant Gold",
+    image: "/assets/gold.jpg",
+    preview: "https://link-kamu.com/gold"
+  },
+  {
+    name: "Minimalist White",
+    image: "/assets/minimal.jpg",
+    preview: "https://link-kamu.com/minimal"
+  }
+];
 const categoryUrl = baseUrl + "/seller/api/v1/categories";
 
 let nextPageUrl = baseUrl + "/seller/api/v1/products/websites?limit=50";
