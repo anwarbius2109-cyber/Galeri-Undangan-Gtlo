@@ -866,6 +866,13 @@ document.getElementById("searchInput").addEventListener("input", function () {
 
 // ================= FILTER GABUNG =================
 function applyFilter() {
+
+  // 🔥 TAMBAH DI SINI (PALING ATAS)
+  if (currentCategoryId === "popular") {
+    renderPopularThemes();
+    return;
+  }
+
   const keyword = document.getElementById("searchInput").value.toLowerCase();
 
   filteredThemes = allThemes.filter(function(theme) {
