@@ -922,6 +922,8 @@ document.getElementById("searchInput").addEventListener("input", function () {
 // ================= FILTER GABUNG =================
 function applyFilter() {
 
+  currentPage = 1; // 🔥 WAJIB
+
   // 🔥 TAMBAH DI SINI (PALING ATAS)
   if (currentCategoryId === "popular") {
     renderPopularThemes();
