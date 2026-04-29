@@ -843,17 +843,14 @@ async function loadAllThemes() {
 // ================= RENDER =================
 function renderThemes(data) {
   const container = document.getElementById("themes");
-  const resultCount = document.getElementById("resultCount");
-
-  if (!container) return;
-
   container.innerHTML = "";
 
-  if (resultCount) {
-    resultCount.textContent = data.length + " tema ditemukan";
-  }
+  const totalPages = Math.ceil(data.length / perPage);
 
-  data.forEach(function(theme) {
+  const start = (currentPage - 1) * perPage;
+  const paginatedData = data.slice(start, start + perPage);
+
+  paginatedData.forEach(function(theme) {
     const card = document.createElement("div");
 
     card.innerHTML =
@@ -864,14 +861,16 @@ function renderThemes(data) {
         '<div class="p-3">' +
           '<h3 class="font-bold mb-2">' + theme.name + '</h3>' +
           '<div class="grid grid-cols-2 gap-2">' +
-            '<a href="' + baseUrl + '/preview/' + theme.slug + '" target="_blank" class="bg-secondary text-center py-2 rounded text-sm w-full block">Preview</a>' +
-            '<a href="https://wa.me/' + phoneNumber + '?text=Pesan+' + theme.name + '" target="_blank" class="bg-primary text-white text-center py-2 rounded text-sm w-full block">Pesan</a>' +
+            '<a href="' + baseUrl + '/preview/' + theme.slug + '" target="_blank" class="bg-secondary text-center py-2 rounded text-sm">Preview</a>' +
+            '<a href="https://wa.me/' + phoneNumber + '?text=Pesan+' + theme.name + '" target="_blank" class="bg-primary text-white text-center py-2 rounded text-sm">Pesan</a>' +
           '</div>' +
         '</div>' +
       '</div>';
 
     container.appendChild(card);
   });
+
+  renderPagination(totalPages, data);
 }
 
 // ================= SEARCH =================
