@@ -814,6 +814,10 @@ let allThemes = [];
 let filteredThemes = [];
 let currentCategoryId = null;
 
+// 🔥 TAMBAH DI SINI
+let currentPage = 1;
+const perPage = 10;
+
 // ================= LOAD ALL THEMES =================
 async function loadAllThemes() {
   const container = document.getElementById("themes");
@@ -843,17 +847,14 @@ async function loadAllThemes() {
 // ================= RENDER =================
 function renderThemes(data) {
   const container = document.getElementById("themes");
-  const resultCount = document.getElementById("resultCount");
-
-  if (!container) return;
-
   container.innerHTML = "";
 
-  if (resultCount) {
-    resultCount.textContent = data.length + " tema ditemukan";
-  }
+  const totalPages = Math.ceil(data.length / perPage);
 
-  data.forEach(function(theme) {
+  const start = (currentPage - 1) * perPage;
+  const paginatedData = data.slice(start, start + perPage);
+
+  paginatedData.forEach(function(theme) {
     const card = document.createElement("div");
 
     card.innerHTML =
@@ -864,16 +865,64 @@ function renderThemes(data) {
         '<div class="p-3">' +
           '<h3 class="font-bold mb-2">' + theme.name + '</h3>' +
           '<div class="grid grid-cols-2 gap-2">' +
-            '<a href="' + baseUrl + '/preview/' + theme.slug + '" target="_blank" class="bg-secondary text-center py-2 rounded text-sm w-full block">Preview</a>' +
-            '<a href="https://wa.me/' + phoneNumber + '?text=Pesan+' + theme.name + '" target="_blank" class="bg-primary text-white text-center py-2 rounded text-sm w-full block">Pesan</a>' +
+            '<a href="' + baseUrl + '/preview/' + theme.slug + '" target="_blank" class="bg-secondary text-center py-2 rounded text-sm">Preview</a>' +
+            '<a href="https://wa.me/' + phoneNumber + '?text=Pesan+' + theme.name + '" target="_blank" class="bg-primary text-white text-center py-2 rounded text-sm">Pesan</a>' +
           '</div>' +
         '</div>' +
       '</div>';
 
     container.appendChild(card);
   });
+
+  // 🔥 NAH INI POSISI YANG BENAR
+  renderPagination(totalPages, data);
 }
 
+
+// 🔥 INI HARUS DI LUAR (bukan di dalam renderThemes)
+function renderPagination(totalPages, data) {
+  let pagination = document.getElementById("pagination");
+
+  if (!pagination) {
+    pagination = document.createElement("div");
+    pagination.id = "pagination";
+    pagination.className = "flex justify-center gap-3 mt-6";
+    document.getElementById("tema").appendChild(pagination);
+  }
+
+  pagination.innerHTML = "";
+
+  const prevBtn = document.createElement("button");
+  prevBtn.innerText = "⬅ Prev";
+  prevBtn.disabled = currentPage === 1;
+  prevBtn.className = "px-4 py-2 bg-secondary rounded";
+  prevBtn.onclick = () => {
+    currentPage--;
+    renderThemes(data);
+  };
+
+  const info = document.createElement("span");
+  info.innerText = "Halaman " + currentPage + " / " + totalPages;
+  info.className = "px-3 py-2";
+
+  const nextBtn = document.createElement("button");
+  nextBtn.innerText = "Next ➡";
+  nextBtn.disabled = currentPage === totalPages;
+  nextBtn.className = "px-4 py-2 bg-primary text-white rounded";
+ nextBtn.onclick = () => {
+  currentPage++;
+  renderThemes(data);
+
+  // 🔥 SCROLL KE ATAS SECTION TEMA
+  document.getElementById("tema").scrollIntoView({
+    behavior: "smooth"
+  });
+};
+
+  pagination.appendChild(prevBtn);
+  pagination.appendChild(info);
+  pagination.appendChild(nextBtn);
+}
 // ================= SEARCH =================
 document.getElementById("searchInput").addEventListener("input", function () {
   applyFilter();
@@ -881,6 +930,8 @@ document.getElementById("searchInput").addEventListener("input", function () {
 
 // ================= FILTER GABUNG =================
 function applyFilter() {
+
+  currentPage = 1; // 🔥 WAJIB
 
   // 🔥 TAMBAH DI SINI (PALING ATAS)
   if (currentCategoryId === "popular") {
