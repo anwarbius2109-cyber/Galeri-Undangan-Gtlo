@@ -1181,19 +1181,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileMenu = document.getElementById("mobileMenu");
   const closeMenu = document.getElementById("closeMenu");
 
-  menuBtn.onclick = () => {
-    mobileMenu.classList.remove("hidden");
-  };
+  // 🔥 CEK DULU ADA ATAU TIDAK
+  if (menuBtn && mobileMenu && closeMenu) {
 
-  closeMenu.onclick = () => {
-    mobileMenu.classList.add("hidden");
-  };
+    menuBtn.onclick = () => {
+      mobileMenu.classList.remove("hidden");
+    };
 
-  mobileMenu.onclick = (e) => {
-    if (e.target === mobileMenu) {
+    closeMenu.onclick = () => {
       mobileMenu.classList.add("hidden");
-    }
-  };
+    };
+
+    mobileMenu.onclick = (e) => {
+      if (e.target === mobileMenu) {
+        mobileMenu.classList.add("hidden");
+      }
+    };
+
+  }
 
 });
 </script>
